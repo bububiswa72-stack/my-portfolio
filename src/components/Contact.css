@@ -1,0 +1,145 @@
+.contact {
+  min-height: 100vh;
+  padding: 130px 8%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.contactContainer {
+  width: 100%;
+}
+
+.contactLabel {
+  color: #67e8f9;
+  letter-spacing: 4px;
+  font-weight: 700;
+}
+
+.contact h2 {
+  font-size: 55px;
+  color: white;
+  margin: 15px 0;
+}
+
+.contact h2 span {
+  color: #67e8f9;
+}
+
+.contactText {
+  color: #b6c2cf;
+  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: 45px;
+}
+
+.contactCards {
+  display: flex;
+  gap: 25px;
+}
+
+.contactCard {
+  width: 300px;
+  padding: 30px;
+  border-radius: 18px;
+  border: 1px solid rgba(103, 232, 249, 0.25);
+  background: rgba(10, 25, 40, 0.45);
+  backdrop-filter: blur(12px);
+
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.contactCard:hover {
+  transform: translateY(-8px);
+  border-color: #67e8f9;
+}
+
+.contactCard span {
+  color: #67e8f9;
+}
+
+.contactCard h3 {
+  font-size: 25px;
+  margin: 30px 0 10px;
+}
+
+.contactCard p {
+  color: #aab7c4;
+}
+
+/* =========================================
+   TABLET
+   701px - 1024px
+========================================= */
+
+@media (min-width: 701px) and (max-width: 1024px) {
+
+  .contact {
+    padding: 70px 40px;
+  }
+
+  .contact h2 {
+    font-size: 48px;
+  }
+
+  .contactCards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .contactCard {
+    width: calc(50% - 10px);
+  }
+}
+
+
+/* =========================================
+   MOBILE
+   0px - 700px
+========================================= */
+
+@media (max-width: 700px) {
+
+  .contact {
+    padding: 60px 20px;
+  }
+
+  .contact h2 {
+    font-size: 40px;
+    line-height: 1.1;
+  }
+
+  .contactCards {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contactCard {
+    width: 100%;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   0px - 480px
+========================================= */
+
+@media (max-width: 480px) {
+
+  .contact {
+    padding: 50px 16px;
+  }
+
+  .contact h2 {
+    font-size: 34px;
+  }
+
+  .contactCard {
+    padding: 22px 18px;
+  }
+}

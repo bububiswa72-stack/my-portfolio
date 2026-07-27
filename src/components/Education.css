@@ -1,0 +1,309 @@
+.education {
+  position: relative;
+  padding: 120px 8%;
+  min-height: 100vh;
+
+  color: white;
+}
+
+.educationContainer {
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.educationHeading {
+  margin-bottom: 70px;
+}
+
+.educationHeading > span {
+  color: #61e7ff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 4px;
+}
+
+.educationHeading h2 {
+  margin: 10px 0 15px;
+
+  font-size: 64px;
+  line-height: 1;
+
+  letter-spacing: -3px;
+}
+
+.educationHeading h2 span {
+  color: #61e7ff;
+}
+
+.educationHeading p {
+  max-width: 550px;
+
+  margin: 0;
+
+  color: #9ca6b3;
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+
+/* =========================
+   TIMELINE
+========================= */
+
+.educationTimeline {
+  position: relative;
+
+  padding-left: 45px;
+}
+
+.educationTimeline::before {
+  content: "";
+
+  position: absolute;
+
+  top: 8px;
+  bottom: 0;
+  left: 8px;
+
+  width: 2px;
+
+  background: linear-gradient(
+    to bottom,
+    #61e7ff,
+    rgba(97, 231, 255, 0.05)
+  );
+
+  box-shadow:
+    0 0 15px rgba(97, 231, 255, 0.35);
+}
+
+
+/* =========================
+   ITEM
+========================= */
+
+.educationItem {
+  position: relative;
+
+  margin-bottom: 30px;
+}
+
+.timelineDot {
+  position: absolute;
+
+  top: 35px;
+  left: -44px;
+
+  width: 13px;
+  height: 13px;
+
+  border: 3px solid #61e7ff;
+
+  border-radius: 50%;
+
+  background: #071018;
+
+  box-shadow:
+    0 0 0 5px rgba(97, 231, 255, 0.08),
+    0 0 18px rgba(97, 231, 255, 0.55);
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.educationCard {
+  position: relative;
+
+  padding: 30px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 18px;
+
+  background: rgba(10, 15, 25, 0.55);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.educationCard:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(97, 231, 255, 0.45);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.25),
+    0 0 25px rgba(97, 231, 255, 0.08);
+}
+
+
+/* =========================
+   CARD CONTENT
+========================= */
+
+.educationYear {
+  display: inline-block;
+
+  margin-bottom: 14px;
+
+  padding: 6px 12px;
+
+  color: #61e7ff;
+
+  background: rgba(97, 231, 255, 0.08);
+
+  border: 1px solid rgba(97, 231, 255, 0.2);
+  border-radius: 20px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.educationCard h3 {
+  margin: 0 0 8px;
+
+  font-size: 24px;
+  color: white;
+}
+
+.educationCard h4 {
+  margin: 0 0 10px;
+
+  color: #61e7ff;
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.educationCard p {
+  margin: 0;
+
+  color: #9ca6b3;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.educationScore {
+  display: inline-block;
+
+  margin-top: 18px;
+
+  color: #dce3ea;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .education {
+    padding: 100px 45px;
+  }
+
+  .educationHeading h2 {
+    font-size: 48px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+  .education {
+    min-height: auto;
+
+    padding: 80px 25px;
+  }
+
+  .educationHeading {
+    margin-bottom: 50px;
+  }
+
+  .educationHeading h2 {
+    font-size: 40px;
+    letter-spacing: -2px;
+  }
+
+  .educationTimeline {
+    padding-left: 32px;
+  }
+
+  .educationTimeline::before {
+    left: 6px;
+  }
+
+  .timelineDot {
+    left: -32px;
+
+    width: 11px;
+    height: 11px;
+  }
+
+  .educationCard {
+    padding: 22px;
+  }
+
+  .educationCard h3 {
+    font-size: 20px;
+  }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .education {
+    padding: 60px 16px;
+  }
+
+  .educationHeading h2 {
+    font-size: 34px;
+  }
+
+  .educationHeading p {
+    font-size: 14px;
+  }
+
+  .educationTimeline {
+    padding-left: 27px;
+  }
+
+  .timelineDot {
+    left: -27px;
+  }
+
+  .educationCard {
+    padding: 20px 18px;
+  }
+
+  .educationCard h3 {
+    font-size: 18px;
+  }
+}

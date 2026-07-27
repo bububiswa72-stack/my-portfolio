@@ -1,0 +1,320 @@
+.certifications {
+  position: relative;
+  padding: 120px 8%;
+  color: white;
+}
+
+.certificationContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+.certificationHeading {
+  margin-bottom: 60px;
+}
+
+.certificationHeading > span {
+  color: #61e7ff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 4px;
+}
+
+.certificationHeading h2 {
+  margin: 10px 0 15px;
+
+  font-size: 64px;
+  line-height: 1;
+
+  letter-spacing: -3px;
+}
+
+.certificationHeading h2 span {
+  color: #61e7ff;
+}
+
+.certificationHeading p {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: #9ca6b3;
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+
+/* =========================
+   GRID
+========================= */
+
+.certificationGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.certificationCard {
+  position: relative;
+
+  min-height: 210px;
+
+  padding: 28px;
+
+  box-sizing: border-box;
+
+  display: flex;
+
+  gap: 20px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 18px;
+
+  background:
+    rgba(10, 15, 25, 0.55);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.certificationCard::before {
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  top: -60px;
+  right: -60px;
+
+  background:
+    rgba(97, 231, 255, 0.08);
+
+  border-radius: 50%;
+
+  filter: blur(5px);
+}
+
+.certificationCard:hover {
+  transform: translateY(-7px);
+
+  border-color:
+    rgba(97, 231, 255, 0.45);
+
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.25),
+    0 0 25px rgba(97, 231, 255, 0.08);
+}
+
+
+/* =========================
+   ICON
+========================= */
+
+.certificateIcon {
+  flex-shrink: 0;
+
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  color: #061018;
+
+  background: #61e7ff;
+
+  font-size: 20px;
+  font-weight: 900;
+
+  box-shadow:
+    0 0 20px rgba(97, 231, 255, 0.25);
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.certificateInfo {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+.certificateYear {
+  color: #61e7ff;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 10px;
+}
+
+.certificateInfo h3 {
+  margin: 0 0 8px;
+
+  color: white;
+
+  font-size: 20px;
+}
+
+.certificateInfo p {
+  margin: 0 0 20px;
+
+  color: #9ca6b3;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* =========================
+   VIEW BUTTON
+========================= */
+
+.viewCertificate {
+  margin-top: auto;
+
+  color: #61e7ff;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.viewCertificate:hover {
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .certifications {
+    padding: 100px 45px;
+  }
+
+  .certificationHeading h2 {
+    font-size: 48px;
+  }
+
+  .certificationGrid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .certifications {
+    padding: 80px 25px;
+  }
+
+  .certificationHeading {
+    margin-bottom: 45px;
+  }
+
+  .certificationHeading h2 {
+    font-size: 40px;
+
+    letter-spacing: -2px;
+  }
+
+  .certificationGrid {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+  .certificationCard {
+    min-height: 190px;
+
+    padding: 22px;
+  }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+  .certifications {
+    padding: 60px 16px;
+  }
+
+  .certificationHeading h2 {
+    font-size: 34px;
+  }
+
+  .certificationHeading p {
+    font-size: 14px;
+  }
+
+  .certificationCard {
+    padding: 20px;
+
+    gap: 15px;
+  }
+
+  .certificateIcon {
+    width: 40px;
+    height: 40px;
+
+    font-size: 17px;
+  }
+
+  .certificateInfo h3 {
+    font-size: 18px;
+  }
+}
