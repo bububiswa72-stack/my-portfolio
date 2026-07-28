@@ -1,49 +1,156 @@
-
 import "./About.css";
 import Lanyard from "./Lanyard";
+
 function About() {
   return (
     <section className="about" id="about">
-      <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+      {/* Decorative background */}
+      <div className="aboutGrid"></div>
+      <div className="aboutGlow aboutGlowOne"></div>
+      <div className="aboutGlow aboutGlowTwo"></div>
 
-      <div className="aboutContent">
+      <div className="aboutWrapper">
 
-        <p className="aboutLabel">GET TO KNOW ME</p>
+        {/* =========================
+            LEFT — 3D LANYARD
+        ========================= */}
 
-        <h2>
-          About <span>Me</span>
-        </h2>
+        <div className="aboutVisual">
 
-        <p className="aboutText">
-          I'm an MCA student specializing in Artificial Intelligence
-          and Machine Learning. I enjoy building intelligent and
-          practical applications using Machine Learning, Python and
-          modern web technologies.
-        </p>
+          <div className="lanyardStage">
+            <div className="lanyardGlow"></div>
 
-        <p className="aboutText">
-          My goal is to combine AI and software development to build
-          useful, modern and user-friendly digital solutions.
-        </p>
-
-        <div className="aboutCards">
-          <div className="aboutCard">
-            <h3>MCA</h3>
-            <p>AI & Machine Learning</p>
+            <Lanyard
+              position={[0, 0, 20]}
+              gravity={[0, -40, 0]}
+              frontimage="/idcard.jpeg"
+              backimage="/idback.png"
+              imagefit="cover"
+            />
           </div>
 
-          <div className="aboutCard">
-            <h3>Developer</h3>
-            <p>Full Stack Development</p>
+          <div className="visualBottom">
+            <span className="visualLine"></span>
+            DRAG THE CARD
+            <span className="visualLine"></span>
           </div>
 
-          <div className="aboutCard">
-            <h3>AIML</h3>
-            <p>Machine Learning & Python</p>
+        </div>
+
+        {/* =========================
+            RIGHT — CONTENT
+        ========================= */}
+
+        <div className="aboutContent">
+
+          <div className="aboutTop">
+
+            <p className="aboutLabel">
+              <span className="labelLine"></span>
+              GET TO KNOW ME
+            </p>
+
+            <div className="availabilityBadge">
+              <span className="availabilityDot"></span>
+              OPEN TO OPPORTUNITIES
+            </div>
+
           </div>
+
+          <h2>
+            Building ideas into
+            <span> intelligent experiences.</span>
+          </h2>
+
+          <p className="aboutLead">
+            I'm an MCA student specializing in
+            <strong> Artificial Intelligence & Machine Learning</strong>,
+            focused on creating intelligent, practical and modern
+            digital products.
+          </p>
+
+          <p className="aboutText">
+            I combine machine learning with software development
+            to build applications that are functional, user-friendly
+            and designed to solve real-world problems.
+          </p>
+
+          {/* =========================
+              QUICK INFO
+          ========================= */}
+
+          <div className="aboutInfo">
+
+            <div className="infoItem">
+              <span className="infoNumber">01</span>
+
+              <div>
+                <span className="infoLabel">FOCUS</span>
+                <strong>AI & Machine Learning</strong>
+              </div>
+            </div>
+
+            <div className="infoItem">
+              <span className="infoNumber">02</span>
+
+              <div>
+                <span className="infoLabel">DEVELOPMENT</span>
+                <strong>Full Stack Web</strong>
+              </div>
+            </div>
+
+            <div className="infoItem">
+              <span className="infoNumber">03</span>
+
+              <div>
+                <span className="infoLabel">CORE</span>
+                <strong>Python & DSA</strong>
+              </div>
+            </div>
+
+          </div>
+
+          {/* =========================
+              TECH STACK
+          ========================= */}
+
+          <div className="aboutTech">
+
+            <div className="techHeading">
+              <span>TECH STACK</span>
+              <span className="techHeadingLine"></span>
+            </div>
+
+            <div className="techList">
+
+              <div className="tech">
+                <span>PY</span>
+                Python
+              </div>
+
+              <div className="tech">
+                <span>ML</span>
+                Machine Learning
+              </div>
+
+              <div className="tech">
+                <span>JS</span>
+                JavaScript
+              </div>
+
+              <div className="tech">
+                <span>RE</span>
+                React
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
       </div>
+
     </section>
   );
 }

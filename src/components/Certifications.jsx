@@ -1,72 +1,86 @@
 import "./Certifications.css";
 
-const certifications = [
-  {
-    title: "Machine Learning",
-    issuer: "Add Organisation / Platform",
-    year: "2026",
-    certificate: "#",
-  },
-  {
-    title: "Python Programming",
-    issuer: "Add Organisation / Platform",
-    year: "2026",
-    certificate: "#",
-  },
-  {
-    title: "Java Programming",
-    issuer: "Add Organisation / Platform",
-    year: "2026",
-    certificate: "#",
-  },
-];
-
 function Certifications() {
-  return (
-    <section className="certifications">
-      <div className="certificationContainer">
+  const certifications = [
+    {
+      id: "01",
+      category: "MACHINE LEARNING",
+      title: "Machine Learning",
+      organisation: "Organisation / Platform",
+      link: "#",
+    },
+    {
+      id: "02",
+      category: "PROGRAMMING",
+      title: "Python Programming",
+      organisation: "Organisation / Platform",
+      link: "#",
+    },
+    {
+      id: "03",
+      category: "PROGRAMMING",
+      title: "Java Programming",
+      organisation: "Organisation / Platform",
+      link: "#",
+    },
+  ];
 
-        <div className="certificationHeading">
-          <span>ACHIEVEMENTS</span>
+  return (
+    <section className="certifications" id="certifications">
+      <div className="certContainer">
+
+        {/* SECTION HEADER */}
+        <div className="certHeader">
+          <p className="certLabel">ACHIEVEMENTS</p>
 
           <h2>
             Certifications<span>.</span>
           </h2>
 
-          <p>
-            Certifications and courses completed as part of
-            my learning and professional development.
+          <p className="certDescription">
+            Certifications and courses completed as part of my learning
+            and professional development.
           </p>
         </div>
 
-        <div className="certificationGrid">
-          {certifications.map((cert, index) => (
-            <div className="certificationCard" key={index}>
+        {/* CERTIFICATE CARDS */}
+        <div className="certGrid">
+          {certifications.map((cert) => (
+            <article className="certificationCard" key={cert.id}>
 
-              <div className="certificateIcon">
-                ✓
+              <div className="certNumber">
+                {cert.id}
               </div>
 
-              <div className="certificateInfo">
-                <span className="certificateYear">
-                  {cert.year}
-                </span>
-
-                <h3>{cert.title}</h3>
-
-                <p>{cert.issuer}</p>
-
-                <a
-                  href={cert.certificate}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="viewCertificate"
-                >
-                  View Certificate →
-                </a>
+              <div className="certIcon">
+                <span>✓</span>
               </div>
 
-            </div>
+              <div className="certInfo">
+                <p className="certCategory">
+                  {cert.category}
+                </p>
+
+                <h3>
+                  {cert.title}
+                </h3>
+
+                <p className="certOrganisation">
+                  {cert.organisation}
+                </p>
+              </div>
+
+              <a
+                href={cert.link}
+                target="_blank"
+                rel="noreferrer"
+                className="certLink"
+              >
+                View Certificate
+                <span>↗</span>
+              </a>
+
+            </article>
           ))}
         </div>
 

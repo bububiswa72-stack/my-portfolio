@@ -1,7 +1,3 @@
-
-import { useEffect, useState } from "react";
-
-
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -11,41 +7,34 @@ import Certifications from "./components/Certifications";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 
+import "./App.css";
+
 function App() {
-  const [blur, setBlur] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const amount = Math.min(window.scrollY / 100, 18);
-      setBlur(amount);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <>
-      <div
-        className="siteBackground"
-        style={{ filter: `blur(${blur}px)` }}
-      ></div>
+    <div className="app">
+      <Navbar />
 
-      <div className="siteOverlay"></div>
+      {/* FIRST PAGE */}
+      <Hero />
 
-      <div className="siteContent">
-        <Navbar />
-        
-        <Hero />
-        <About />
-        <Education />
-        <Skills />
-        <Certifications />
-        <Projects />
-        <Contact />
-      </div>
-    </>
+      {/* SECOND PAGE ONWARDS */}
+      <main className="premiumSections">
+        <div className="premiumGrid"></div>
+
+        <div className="aurora aurora1"></div>
+        <div className="aurora aurora2"></div>
+        <div className="aurora aurora3"></div>
+
+        <div className="sectionsContent">
+          <About />
+          <Education />
+          <Skills />
+          <Certifications />
+          <Projects />
+          <Contact />
+        </div>
+      </main>
+    </div>
   );
 }
 

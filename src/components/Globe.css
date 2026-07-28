@@ -1,0 +1,47 @@
+.globeSection {
+  width: 100%;
+  height: 550px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: transparent;
+  overflow: hidden;
+}
+
+.globeCanvas {
+  width: 550px;
+  height: 550px;
+  cursor: grab;
+}
+
+.globeCanvas:active {
+  cursor: grabbing;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .globeSection {
+    height: 450px;
+  }
+
+  .globeCanvas {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .globeSection {
+    height: 350px;
+  }
+
+  .globeCanvas {
+    width: 340px;
+    height: 340px;
+  }
+}

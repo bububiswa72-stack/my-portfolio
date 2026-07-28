@@ -1,289 +1,1057 @@
-.hero {
-  min-height: 100vh;
-  width: 100%;
-background: #050a12;
-  
+/* ========================================
+   HERO SECTION
+======================================== */
+
+.heroSection {
   position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+
   display: flex;
   align-items: center;
-  overflow: hidden;
-}
 
-.heroBackground {
-  position: absolute;
-  inset: 0;
-
-  background-image: url("/profile.jpg");
-  background-size: contain;
-  background-position: right center;
+  background-size: cover;
+  background-position: center center;
   background-repeat: no-repeat;
 
-  transform: none;
+  color: #ffffff;
 }
+
+
+/* ========================================
+   BACKGROUND OVERLAY
+======================================== */
 
 .heroOverlay {
   position: absolute;
   inset: 0;
+  z-index: 0;
 
   background:
     linear-gradient(
       90deg,
-      rgba(3, 7, 14, 0.97) 0%,
-      rgba(3, 7, 14, 0.82) 32%,
-      rgba(3, 7, 14, 0.35) 62%,
-      rgba(3, 7, 14, 0.18) 100%
+      rgba(2, 9, 17, 0.97) 0%,
+      rgba(3, 12, 22, 0.91) 28%,
+      rgba(3, 12, 22, 0.70) 50%,
+      rgba(2, 8, 15, 0.28) 72%,
+      rgba(2, 7, 13, 0.12) 100%
     ),
     linear-gradient(
       0deg,
-      rgba(3, 7, 14, 0.75),
-      transparent 45%
+      rgba(2, 8, 15, 0.62) 0%,
+      transparent 42%
     );
 }
 
-.heroContent {
-  position: relative;
-  z-index: 2;
-  width: min(650px, 86%);
-  margin-left: 8%;
-  padding-top: 60px;
-}
 
-.hello {
-  color: #cbd5e1;
-  font-size: 19px;
-  margin-bottom: 10px;
-  letter-spacing: 0.5px;
-}
+/* ========================================
+   GLOW
+======================================== */
 
-.hero h1 {
-  color: white;
-  font-size: clamp(48px, 6vw, 82px);
-  line-height: 1;
-  margin: 0 0 18px;
-  letter-spacing: -3px;
-}
-
-.hero h1 span {
-  color: #38bdf8;
-}
-
-.hero h2 {
-  color: #a78bfa;
-  font-size: clamp(20px, 2vw, 28px);
-  font-weight: 600;
-  margin-bottom: 22px;
-}
-
-.description {
-  color: #c7cdd6;
-  max-width: 570px;
-  font-size: 16px;
-  line-height: 1.8;
-}
-
-.heroButtons {
-  display: flex;
-  gap: 15px;
-  margin-top: 34px;
-}
-
-.primaryBtn,
-.secondaryBtn {
-  min-width: 145px;
-  padding: 14px 22px;
-  border-radius: 8px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-  transition: 0.3s ease;
-}
-
-.primaryBtn {
-  color: #03111a;
-  background: #38bdf8;
-  border: 1px solid #38bdf8;
-}
-
-.primaryBtn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(56, 189, 248, 0.25);
-}
-
-.secondaryBtn {
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-}
-
-.secondaryBtn:hover {
-  border-color: #38bdf8;
-  transform: translateY(-3px);
-}
-
-.socialText {
-  margin-top: 28px;
-  color: #94a3b8;
-  font-size: 13px;
-}
-
-.socialText span::before {
-  content: "";
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  margin-right: 9px;
+.heroGlow {
+  position: absolute;
   border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 10px #22c55e;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 1;
 }
 
-.scrollIndicator {
-  position: absolute;
-  z-index: 2;
-  bottom: 30px;
-  left: 50%;
-  width: 25px;
-  height: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 20px;
+.heroGlowOne {
+  width: 300px;
+  height: 300px;
+
+  left: -150px;
+  top: 30%;
+
+  background: rgba(44, 220, 255, 0.09);
 }
 
-.scrollIndicator span {
-  position: absolute;
-  top: 8px;
-  left: 50%;
-  width: 4px;
-  height: 7px;
-  background: white;
+.heroGlowTwo {
+  width: 260px;
+  height: 260px;
+
+  left: 35%;
+  bottom: -140px;
+
+  background: rgba(58, 154, 255, 0.07);
+}
+
+
+/* ========================================
+   MAIN CONTAINER
+======================================== */
+
+.heroContainer {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding:
+    125px
+    clamp(50px, 7vw, 110px)
+    100px;
+}
+
+.heroContent {
+  width: min(560px, 45vw);
+}
+
+
+/* ========================================
+   TOP BADGE
+======================================== */
+
+.heroEyebrow {
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 7px 13px;
+
+  margin-bottom: 17px;
+
+  border: 1px solid rgba(85, 231, 255, 0.24);
+  border-radius: 999px;
+
+  background: rgba(7, 24, 36, 0.58);
+  backdrop-filter: blur(12px);
+
+  color: #69e9ff;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.8px;
+}
+
+.heroEyebrowDot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #55e7ff;
+
+  box-shadow:
+    0 0 7px #55e7ff,
+    0 0 14px rgba(85, 231, 255, 0.5);
+}
+
+
+/* ========================================
+   HELLO TEXT
+======================================== */
+
+.heroHello {
+  margin: 0 0 5px;
+
+  color: #a8b4c3;
+
+  font-size: 15px;
+  font-weight: 500;
+}
+
+
+/* ========================================
+   NAME
+======================================== */
+
+.heroName {
+  margin: 0;
+
+  font-size: clamp(48px, 4.3vw, 68px);
+  line-height: 1;
+
+  font-weight: 850;
+  letter-spacing: -2.5px;
+
+  color: #ffffff;
+}
+
+.heroName span {
+  background: linear-gradient(
+    135deg,
+    #76efff,
+    #32c7ec
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+
+/* ========================================
+   ROLE
+======================================== */
+
+.heroRole {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  margin-top: 21px;
+}
+
+.roleLine {
+  width: 30px;
+  height: 1px;
+
+  flex-shrink: 0;
+
+  background: #55e7ff;
+
+  box-shadow:
+    0 0 9px rgba(85, 231, 255, 0.55);
+}
+
+.heroRole h2 {
+  margin: 0;
+
+  color: #d6dcff;
+
+  font-size: clamp(20px, 1.7vw, 26px);
+
+  font-weight: 750;
+  line-height: 1.25;
+}
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.heroDescription {
+  max-width: 540px;
+
+  margin: 21px 0 0;
+
+  color: #b5bfca;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   MAIN BUTTONS
+======================================== */
+
+.heroActions {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+.heroPrimaryBtn,
+.heroSecondaryBtn {
+  height: 48px;
+
+  padding: 0 21px;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 14px;
+
   border-radius: 10px;
-  transform: translateX(-50%);
-  animation: scroll 1.8s infinite;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-@keyframes scroll {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, 0);
+
+/* HIRE ME */
+
+.heroPrimaryBtn {
+  min-width: 140px;
+
+  color: #03131b;
+
+  background: linear-gradient(
+    135deg,
+    #72efff,
+    #35cbe9
+  );
+
+  border: 1px solid #72efff;
+
+  box-shadow:
+    0 10px 28px rgba(48, 207, 235, 0.16);
+}
+
+.heroPrimaryBtn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 34px rgba(48, 207, 235, 0.28);
+}
+
+
+/* DOWNLOAD */
+
+.heroSecondaryBtn {
+  min-width: 185px;
+
+  color: #f1f5f8;
+
+  background: rgba(8, 19, 29, 0.65);
+
+  border:
+    1px solid
+    rgba(116, 219, 240, 0.24);
+
+  backdrop-filter: blur(12px);
+}
+
+.heroSecondaryBtn:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(85, 231, 255, 0.55);
+
+  background:
+    rgba(12, 31, 44, 0.88);
+}
+
+.btnArrow {
+  color: #07151c;
+  font-size: 15px;
+}
+
+.downloadArrow {
+  color: #55e7ff;
+  font-size: 15px;
+}
+
+
+/* ========================================
+   AVAILABILITY CARD
+======================================== */
+
+.heroAvailability {
+  width: 390px;
+  max-width: 100%;
+
+  min-height: 67px;
+
+  margin-top: 18px;
+
+  padding: 11px 15px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  border:
+    1px solid
+    rgba(85, 231, 255, 0.22);
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(10, 26, 38, 0.84),
+      rgba(7, 17, 27, 0.70)
+    );
+
+  backdrop-filter: blur(15px);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.03),
+    0 12px 30px rgba(0,0,0,0.12);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.heroAvailability:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    rgba(85, 231, 255, 0.45);
+}
+
+
+/* Availability icon */
+
+.availabilityIcon {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 11px;
+
+  background:
+    rgba(85, 231, 255, 0.07);
+
+  border:
+    1px solid
+    rgba(85, 231, 255, 0.13);
+}
+
+.availabilityDot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #55e7ff;
+
+  box-shadow:
+    0 0 7px #55e7ff,
+    0 0 15px rgba(85, 231, 255, 0.6);
+
+  animation:
+    availabilityPulse 2s infinite;
+}
+
+@keyframes availabilityPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 
-  30% {
+  50% {
+    transform: scale(0.75);
+    opacity: 0.6;
+  }
+}
+
+
+/* Availability text */
+
+.availabilityText {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.availabilityText strong {
+  color: #f3f7fa;
+
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.availabilityText small {
+  color: #8f9ca8;
+
+  font-size: 10px;
+}
+
+
+/* ========================================
+   SOCIAL ICONS
+======================================== */
+
+.heroSocials {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 14px;
+}
+
+.socialIcon {
+  position: relative;
+
+  width: 45px;
+  height: 45px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 12px;
+
+  color: #e5faff;
+
+  text-decoration: none;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 42, 56, 0.78),
+      rgba(6, 18, 27, 0.85)
+    );
+
+  border:
+    1px solid
+    rgba(85, 231, 255, 0.20);
+
+  backdrop-filter: blur(14px);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.035),
+    0 8px 22px rgba(0,0,0,0.15);
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.socialIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.socialIcon:hover {
+  transform:
+    translateY(-4px)
+    scale(1.03);
+
+  color: #55e7ff;
+
+  border-color:
+    rgba(85, 231, 255, 0.60);
+
+  box-shadow:
+    0 10px 28px
+    rgba(38, 201, 230, 0.13);
+}
+
+
+/* ========================================
+   TECHNOLOGY STRIP
+======================================== */
+
+.heroTechStrip {
+  position: absolute;
+
+  left: clamp(50px, 7vw, 110px);
+  bottom: 25px;
+
+  z-index: 4;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+}
+
+.heroTechStrip span {
+  color:
+    rgba(190, 201, 211, 0.55);
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 1.8px;
+}
+
+.heroTechStrip i {
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #55e7ff;
+
+  box-shadow:
+    0 0 8px
+    rgba(85,231,255,0.8);
+}
+
+
+/* ========================================
+   SCROLL INDICATOR
+======================================== */
+
+.heroScroll {
+  position: absolute;
+
+  left: 50%;
+  bottom: 20px;
+
+  z-index: 4;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 6px;
+
+  color: #8e9aa6;
+
+  text-decoration: none;
+}
+
+.heroMouse {
+  width: 20px;
+  height: 32px;
+
+  padding-top: 6px;
+
+  display: flex;
+  justify-content: center;
+
+  border:
+    1px solid
+    rgba(170, 204, 216, 0.45);
+
+  border-radius: 13px;
+}
+
+.heroMouseWheel {
+  width: 3px;
+  height: 5px;
+
+  border-radius: 10px;
+
+  background: #55e7ff;
+
+  animation:
+    scrollWheel 1.8s infinite;
+}
+
+@keyframes scrollWheel {
+
+  0% {
+    transform: translateY(0);
     opacity: 1;
   }
 
   100% {
+    transform: translateY(9px);
     opacity: 0;
-    transform: translate(-50%, 14px);
   }
 }
 
-/* =========================
+.heroScroll small {
+  font-size: 7px;
+  letter-spacing: 1.8px;
+}
+
+
+/* ========================================
+   LAPTOP
+======================================== */
+
+@media (max-width: 1200px) {
+
+  .heroContainer {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .heroContent {
+    width: 52%;
+  }
+
+  .heroName {
+    font-size: 55px;
+  }
+
+  .heroRole h2 {
+    font-size: 22px;
+  }
+
+  .heroTechStrip {
+    left: 6%;
+  }
+}
+
+
+/* ========================================
    TABLET
-   769px - 1024px
-========================= */
+======================================== */
 
-@media (min-width: 769px) and (max-width: 1024px) {
-  .heroBackground {
-    background-position: 58% center;
-  }
+@media (max-width: 900px) {
 
-  .heroOverlay {
-    background: rgba(3, 7, 14, 0.55);
-  }
-
-  .heroContent {
-    padding: 120px 45px 50px;
-    max-width: 650px;
-  }
-
-  .hero h1 {
-    font-size: 64px;
-    line-height: 1;
-    letter-spacing: -3px;
-  }
-
-  .heroButtons {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-  }
-}
-
-
-/* =========================
-   MOBILE
-   max 768px
-========================= */
-
-@media (max-width: 768px) {
-  .hero {
-    min-height: 100vh;
-  }
-
-  .heroBackground {
-    background-position: 62% center;
-  }
-
-  .heroOverlay {
-    background: rgba(3, 7, 14, 0.72);
-  }
-
-  .heroContent {
-    margin: auto;
-    padding: 100px 25px 40px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .hero h1 {
-    font-size: 48px;
-    line-height: 1.05;
-    letter-spacing: -2px;
-  }
-
-  .heroButtons {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-
-    width: 200px;
-  }
-
-  .heroButtons a,
-  .heroButtons button {
-    width: 100%;
-    box-sizing: border-box;
-  }
-}
-
-
-/* =========================
-   SMALL MOBILE
-   max 480px
-========================= */
-
-@media (max-width: 480px) {
-  .heroBackground {
+  .heroSection {
     background-position: 65% center;
   }
 
+  .heroContent {
+    width: 60%;
+  }
+
+  .heroName {
+    font-size: 48px;
+  }
+
+  .heroDescription {
+    font-size: 13px;
+  }
+
+  .heroAvailability {
+    width: 360px;
+  }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+
+  .heroSection {
+    min-height: 100svh;
+
+    background-position: 68% center;
+
+    align-items: flex-end;
+  }
+
   .heroOverlay {
-    background: rgba(3, 7, 14, 0.78);
+    background:
+      linear-gradient(
+        0deg,
+        rgba(2,8,15,0.99) 0%,
+        rgba(2,8,15,0.95) 50%,
+        rgba(2,8,15,0.45) 100%
+      );
+  }
+
+  .heroContainer {
+    padding:
+      150px
+      22px
+      90px;
   }
 
   .heroContent {
-    padding: 90px 16px 30px;
-  }
-
-  .hero h1 {
-    font-size: 40px;
-    line-height: 1.05;
-    letter-spacing: -1.5px;
-  }
-
-  .heroButtons {
     width: 100%;
-    max-width: 220px;
+  }
+
+  .heroEyebrow {
+    font-size: 9px;
+  }
+
+  .heroHello {
+    font-size: 14px;
+  }
+
+  .heroName {
+    font-size:
+      clamp(40px, 12vw, 52px);
+
+    letter-spacing: -2px;
+  }
+
+  .heroRole {
+    margin-top: 17px;
+  }
+
+  .heroRole h2 {
+    font-size: 19px;
+  }
+
+  .heroDescription {
+    font-size: 13px;
+
+    line-height: 1.6;
+  }
+
+  .heroActions {
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 9px;
+
+    width: 100%;
+  }
+
+  .heroPrimaryBtn,
+  .heroSecondaryBtn {
+    width: 100%;
+    min-width: 0;
+
+    height: 48px;
+  }
+
+  .heroAvailability {
+    width: 100%;
+  }
+
+  .socialIcon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .socialIcon svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .heroTechStrip {
+    left: 22px;
+    right: 22px;
+
+    bottom: 22px;
+
+    gap: 7px;
+
+    overflow: hidden;
+  }
+
+  .heroTechStrip span {
+    font-size: 6.5px;
+
+    letter-spacing: 0.9px;
+
+    white-space: nowrap;
+  }
+
+  .heroScroll {
+    display: none;
+  }
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+
+  .heroContainer {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  .heroName {
+    font-size: 40px;
+  }
+
+  .heroRole h2 {
+    font-size: 17px;
+  }
+
+  .heroAvailability {
+    padding: 11px 13px;
+  }
+
+  .availabilityIcon {
+    width: 39px;
+    height: 39px;
+  }
+
+  .availabilityText strong {
+    font-size: 12px;
+  }
+
+  .availabilityText small {
+    font-size: 9px;
+  }
+
+  .socialIcon {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 11px;
+  }
+
+  .socialIcon svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+/* =========================================
+   HERO PAGE LOAD ANIMATION
+========================================= */
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+    filter: blur(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Initial hidden state */
+
+.heroEyebrow,
+.heroHello,
+.heroName,
+.heroRole,
+.heroDescription,
+.heroActions,
+.heroAvailability,
+.heroSocials,
+.heroTechStrip {
+  opacity: 0;
+
+  animation: heroReveal 0.7s ease forwards;
+}
+
+/* STAGGER ORDER */
+
+.heroEyebrow {
+  animation-delay: 0.1s;
+}
+
+.heroHello {
+  animation-delay: 0.2s;
+}
+
+.heroName {
+  animation-delay: 0.3s;
+}
+
+.heroRole {
+  animation-delay: 0.45s;
+}
+
+.heroDescription {
+  animation-delay: 0.6s;
+}
+
+.heroActions {
+  animation-delay: 0.75s;
+}
+
+.heroAvailability {
+  animation-delay: 0.9s;
+}
+
+.heroSocials {
+  animation-delay: 1.05s;
+}
+
+.heroTechStrip {
+  animation-delay: 1.2s;
+}
+
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .heroEyebrow,
+  .heroHello,
+  .heroName,
+  .heroRole,
+  .heroDescription,
+  .heroActions,
+  .heroAvailability,
+  .heroSocials,
+  .heroTechStrip {
+    animation: none;
+    opacity: 1;
+  }
+}
+/* =========================================
+   CREDIBILITY STRIP
+========================================= */
+
+.heroCredibility {
+  margin-top: 24px;
+
+  width: fit-content;
+  max-width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+
+  padding: 12px 18px;
+
+  border: 1px solid rgba(97, 231, 255, 0.13);
+  border-radius: 14px;
+
+  background: rgba(7, 16, 24, 0.38);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  opacity: 0;
+
+  animation: heroReveal 0.7s ease 1.15s forwards;
+}
+
+.credibilityItem {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.credibilityItem strong {
+  color: #f5f8fa;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.credibilityItem span {
+  color: #71818c;
+
+  font-size: 9px;
+
+  white-space: nowrap;
+}
+
+.credibilityDivider {
+  width: 1px;
+  height: 25px;
+
+  background: rgba(97, 231, 255, 0.15);
+}
+
+@media (max-width: 700px) {
+
+  .heroCredibility {
+    width: 100%;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    padding: 12px;
+  }
+
+  .credibilityDivider {
+    display: none;
+  }
+
+  .credibilityItem {
+    width: calc(50% - 6px);
   }
 }

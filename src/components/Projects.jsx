@@ -2,29 +2,49 @@ import "./Projects.css";
 
 const projects = [
   {
-    number: "01",
+    id: "01",
     title: "Grocery Store Management System",
+    category: "FULL STACK WEB APPLICATION",
     description:
       "A full-stack grocery store web application with product search, cart, quantity management, user login and database integration.",
-    tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+    image: "/grocery.png",
+    technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
     github: "#",
     live: "#",
   },
+
   {
-    number: "02",
-    title: "Machine Learning Project",
-    description:
-      "A machine learning application focused on data preprocessing, model training, prediction and performance evaluation.",
-    tech: ["Python", "Pandas", "Scikit-learn", "Matplotlib"],
-    github: "#",
-    live: "#",
-  },
+  id: "02",
+
+  title: "Credit Card Fraud Detection",
+
+  category: "MACHINE LEARNING • FRAUD DETECTION",
+
+  description:
+    "A machine learning system designed to identify fraudulent credit card transactions using data preprocessing, classification and model evaluation.",
+
+  image: "/Creditcard.png",
+
+  technologies: [
+    "Python",
+    "Pandas",
+    "Scikit-learn",
+    "NumPy",
+    "Matplotlib"
+  ],
+
+  github: "#",
+  live: "#",
+},
+
   {
-    number: "03",
+    id: "03",
     title: "Personal Portfolio",
+    category: "FRONTEND DEVELOPMENT",
     description:
-      "A responsive developer portfolio showcasing my skills, projects, education and professional profile.",
-    tech: ["React", "CSS", "JavaScript", "Vite"],
+      "A modern responsive developer portfolio showcasing my skills, projects, education and professional profile.",
+    image: "/Portfolio.png",
+    technologies: ["React", "CSS", "JavaScript", "Vite"],
     github: "#",
     live: "#",
   },
@@ -33,72 +53,131 @@ const projects = [
 function Projects() {
   return (
     <section className="projects" id="projects">
+
       <div className="projectsContainer">
 
-        <p className="projectsLabel">SELECTED WORK</p>
+        {/* HEADING */}
+        <div className="projectsHeader">
 
-        <div className="projectsHeading">
-          <div>
-            <h2>
-              Featured <span>Projects</span>
-            </h2>
+          <p className="projectsLabel">
+            SELECTED WORK
+          </p>
 
-            <p>
-              Some of the projects I've built while learning and
-              exploring software development and AI.
-            </p>
-          </div>
+          <h2>
+            Featured <span>Projects.</span>
+          </h2>
+
+          <p className="projectsIntro">
+            A selection of projects built using modern web technologies,
+            machine learning and practical problem-solving.
+          </p>
+
         </div>
 
+        {/* PROJECT CARDS */}
         <div className="projectsGrid">
+
           {projects.map((project) => (
-            <article className="projectCard" key={project.number}>
+            <article
+              className="projectCard"
+              key={project.id}
+            >
 
+              {/* TOP */}
               <div className="projectTop">
-                <span>{project.number}</span>
-                <span className="projectArrow">↗</span>
+
+                <span className="projectNumber">
+                  / {project.id}
+                </span>
+
+                <a
+                  href={project.live}
+                  className="projectArrow"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Open ${project.title}`}
+                >
+                  ↗
+                </a>
+
               </div>
 
-              <div className="projectPreview">
-                <span>{project.title}</span>
+              {/* IMAGE */}
+              <div className="projectImage">
+
+                <img
+                  src={project.image}
+                  alt={`${project.title} preview`}
+                />
+
+                <div className="projectImageOverlay"></div>
+
+                <span className="projectView">
+                  VIEW PROJECT ↗
+                </span>
+
               </div>
 
-              <div className="projectInfo">
-                <h3>{project.title}</h3>
+              {/* CONTENT */}
+              <div className="projectContent">
 
-                <p>{project.description}</p>
+                <span className="projectCategory">
+                  {project.category}
+                </span>
 
-                <div className="projectTech">
-                  {project.tech.map((item) => (
-                    <span key={item}>{item}</span>
+                <h3>
+                  {project.title}
+                </h3>
+
+                <p className="projectDescription">
+                  {project.description}
+                </p>
+
+                {/* TECHNOLOGIES */}
+                <div className="projectTechnologies">
+
+                  {project.technologies.map((technology) => (
+                    <span key={technology}>
+                      {technology}
+                    </span>
                   ))}
+
                 </div>
 
-                <div className="projectButtons">
+                {/* BUTTONS */}
+                <div className="projectActions">
+
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noreferrer"
+                    className="projectGithub"
                   >
                     GitHub
+                    <span>↗</span>
                   </a>
 
                   <a
                     href={project.live}
                     target="_blank"
                     rel="noreferrer"
-                    className="liveProject"
+                    className="projectLive"
                   >
-                    Live Project ↗
+                    Live Project
+                    <span>↗</span>
                   </a>
+
                 </div>
+
               </div>
 
             </article>
           ))}
+
         </div>
 
       </div>
+
     </section>
   );
 }
