@@ -23,8 +23,8 @@ function About() {
             <Lanyard
               position={[0, 0, 20]}
               gravity={[0, -40, 0]}
-              frontimage="/idcard.jpeg"
-              backimage="/idback.png"
+              frontImage="/idcard.jpeg"
+              backImage="/idback.png"
               imagefit="cover"
             />
           </div>

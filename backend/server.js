@@ -1,14 +1,17 @@
 import express from "express";
 import cors from "cors";
-import nodemailer from "nodemailer";
 import dotenv from "dotenv";
+import nodemailer from "nodemailer";
 
-dotenv.config({ path: "./backend/.env" });
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// CORS
+// ==========================================
+// MIDDLEWARE
+// ==========================================
+
 app.use(
   cors({
     origin: [
@@ -22,12 +25,42 @@ app.use(
 
 app.use(express.json());
 
-// TEST
+// ==========================================
+// HOME
+// ==========================================
+
 app.get("/", (req, res) => {
-  res.send("Portfolio backend is running!");
+  res.send("BN Portfolio Backend Working");
 });
 
-// CONTACT
+// ==========================================
+// TEST API
+// ==========================================
+
+app.get("/api/test", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Backend connection successful",
+  });
+});
+
+// ==========================================
+// NODEMAILER
+// ==========================================
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+
+// ==========================================
+// CONTACT API
+// ==========================================
+
 app.post("/api/contact", async (req, res) => {
   console.log("================================");
   console.log("CONTACT REQUEST RECEIVED");
@@ -37,15 +70,17 @@ app.post("/api/contact", async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
 
+    // Required fields
     if (!name || !email || !message) {
       return res.status(400).json({
         success: false,
-        message: "Please fill all required fields.",
+        message: "Name, email and message are required.",
       });
     }
 
+    // Check email configuration
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-      console.error("EMAIL_USER or EMAIL_PASS missing");
+      console.error("EMAIL_USER or EMAIL_PASS missing in .env");
 
       return res.status(500).json({
         success: false,
@@ -53,30 +88,24 @@ app.post("/api/contact", async (req, res) => {
       });
     }
 
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
-
-    console.log("Trying to send email...");
+    console.log("Sending email...");
 
     const info = await transporter.sendMail({
-      from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+      // Always send FROM your own authenticated Gmail
+      from: `"BN Portfolio" <${process.env.EMAIL_USER}>`,
 
+      // Message will arrive at your Gmail
       to: process.env.EMAIL_USER,
 
+      // Reply button replies to visitor
       replyTo: email,
 
       subject: subject
-        ? `Portfolio: ${subject}`
-        : `Portfolio message from ${name}`,
+        ? `Portfolio Contact: ${subject}`
+        : `Portfolio Message from ${name}`,
 
       text: `
-New Portfolio Message
+New message from your portfolio website
 
 Name: ${name}
 Email: ${email}
@@ -85,28 +114,93 @@ Subject: ${subject || "No Subject"}
 Message:
 ${message}
       `,
+
+      html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+          
+          <h2>New Portfolio Message</h2>
+
+          <p>
+            Someone sent you a message from your portfolio website.
+          </p>
+
+          <hr />
+
+          <p>
+            <strong>Name:</strong>
+            ${name}
+          </p>
+
+          <p>
+            <strong>Email:</strong>
+            ${email}
+          </p>
+
+          <p>
+            <strong>Subject:</strong>
+            ${subject || "No Subject"}
+          </p>
+
+          <p>
+            <strong>Message:</strong>
+          </p>
+
+          <p>
+            ${message}
+          </p>
+
+          <hr />
+
+          <p>
+            Reply to this email to respond to ${name}.
+          </p>
+
+        </div>
+      `,
     });
 
-    console.log("EMAIL SENT:", info.messageId);
+    console.log("EMAIL SENT SUCCESSFULLY");
+    console.log("Message ID:", info.messageId);
 
     return res.status(200).json({
       success: true,
       message: "Message sent successfully!",
     });
   } catch (error) {
-    console.error("EMAIL ERROR:");
+    console.error("================================");
+    console.error("EMAIL ERROR");
     console.error(error);
+    console.error("================================");
 
     return res.status(500).json({
       success: false,
-      message: "Message could not be sent.",
+      message: "Message could not be sent. Please try again.",
     });
   }
 });
 
+// ==========================================
+// 404
+// ==========================================
+
+app.use((req, res) => {
+  res.status(404).json({
+    success: false,
+    message: "API route not found.",
+  });
+});
+
+// ==========================================
+// START SERVER
+// ==========================================
+
 app.listen(PORT, () => {
-  console.log("--------------------------------");
-  console.log(`Backend running on port ${PORT}`);
+  console.log("");
+  console.log("================================");
+  console.log("BN PORTFOLIO BACKEND STARTED");
   console.log(`http://localhost:${PORT}`);
-  console.log("--------------------------------");
+  console.log(`Test: http://localhost:${PORT}/api/test`);
+  console.log("Contact: POST /api/contact");
+  console.log("================================");
+  console.log("");
 });

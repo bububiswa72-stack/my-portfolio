@@ -1,8 +1,20 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-   assetsInclude: ["**/*.glb", "**/*.gltf"],
-})
+
+  // GLB / 3D model files ko asset treat karo
+  assetsInclude: ["**/*.glb", "**/*.gltf"],
+
+  // Contact backend proxy
+  server: {
+    proxy: {
+      "/api": {
+        target: "http://localhost:5000",
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
+});
