@@ -27,6 +27,7 @@ function App() {
         <div className="aurora aurora3"></div>
 
         <div className="sectionsContent">
+          
           <About />
           <Education />
           <Skills />

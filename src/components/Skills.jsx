@@ -4,99 +4,104 @@ import {
   FaPython,
   FaJava,
   FaReact,
-  FaJs,
   FaHtml5,
   FaCss3Alt,
-  FaDatabase,
-  FaCode,
-  FaBrain,
 } from "react-icons/fa";
+
+import {
+  SiJavascript,
+  SiMysql,
+} from "react-icons/si";
+
+import { FaCode } from "react-icons/fa6";
 
 const skills = [
   {
     number: "01",
-    name: "Data Structures & Algorithms",
-    category: "Problem Solving",
     icon: <FaCode />,
+    title: "Data Structures & Algorithms",
+    subtitle: "Problem Solving",
+    tags: ["Arrays", "Trees", "Graphs"],
   },
   {
     number: "02",
-    name: "Machine Learning",
-    category: "AI / ML",
-    icon: <FaBrain />,
+    icon: <span className="mlIcon">AI</span>,
+    title: "Machine Learning",
+    subtitle: "AI / ML",
+    tags: ["Scikit-learn", "Pandas", "NumPy"],
   },
   {
     number: "03",
-    name: "Python",
-    category: "Programming",
     icon: <FaPython />,
+    title: "Python",
+    subtitle: "Programming",
+    tags: ["OOP", "Pandas", "NumPy"],
   },
   {
     number: "04",
-    name: "Java",
-    category: "Programming",
     icon: <FaJava />,
+    title: "Java",
+    subtitle: "Programming",
+    tags: ["OOP", "Collections", "DSA"],
   },
   {
     number: "05",
-    name: "React",
-    category: "Frontend",
     icon: <FaReact />,
+    title: "React",
+    subtitle: "Frontend",
+    tags: ["Components", "Hooks", "Vite"],
   },
   {
     number: "06",
-    name: "JavaScript",
-    category: "Web Development",
-    icon: <FaJs />,
+    icon: <SiJavascript />,
+    title: "JavaScript",
+    subtitle: "Web Development",
+    tags: ["ES6+", "DOM", "APIs"],
   },
   {
     number: "07",
-    name: "HTML & CSS",
-    category: "Frontend",
     icon: (
-      <div className="doubleIcon">
+      <div className="dualIcon">
         <FaHtml5 />
         <FaCss3Alt />
       </div>
     ),
+    title: "HTML & CSS",
+    subtitle: "Frontend",
+    tags: ["HTML5", "CSS3", "Responsive"],
   },
   {
     number: "08",
-    name: "MySQL",
-    category: "Database",
-    icon: <FaDatabase />,
+    icon: <SiMysql />,
+    title: "MySQL",
+    subtitle: "Database",
+    tags: ["SQL", "CRUD", "Joins"],
   },
 ];
 
 function Skills() {
   return (
     <section className="skills" id="skills">
-      <div className="skillsGlow glowOne"></div>
-      <div className="skillsGlow glowTwo"></div>
-
       <div className="skillsContainer">
-        <div className="skillsHeader">
-          <p className="skillsLabel">
-            <span></span>
-            MY EXPERTISE
-          </p>
 
-          <h2>
-            Skills & <span>Technologies</span>
-          </h2>
+        <p className="skillsLabel">
+          MY EXPERTISE
+        </p>
 
-          <p className="skillsDescription">
-            Technologies and concepts I use to build modern,
-            intelligent and practical applications.
-          </p>
-        </div>
+        <h2 className="skillsTitle">
+          Skills & <span>Technologies</span>
+        </h2>
+
+        <p className="skillsText">
+          Technologies and concepts I use to build modern,
+          intelligent and practical applications.
+        </p>
 
         <div className="skillsGrid">
           {skills.map((skill) => (
-            <article className="skillCard" key={skill.number}>
-              <div className="skillGlow"></div>
+            <div className="skillCard" key={skill.number}>
 
-              <div className="skillCardTop">
+              <div className="skillTop">
                 <span className="skillNumber">
                   / {skill.number}
                 </span>
@@ -106,16 +111,23 @@ function Skills() {
                 </div>
               </div>
 
-              <div className="skillInfo">
-                <h3>{skill.name}</h3>
+              <div className="skillContent">
+                <h3>{skill.title}</h3>
+                <p>{skill.subtitle}</p>
 
-                <p>{skill.category}</p>
-
-                
+                <div className="skillTags">
+                  {skill.tags.map((tag) => (
+                    <span key={tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </article>
+
+            </div>
           ))}
         </div>
+
       </div>
     </section>
   );

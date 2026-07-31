@@ -1,87 +1,154 @@
 import "./Certifications.css";
+import {
+  FaPython,
+  FaGoogle,
+  FaChartBar,
+  FaBrain,
+  FaCertificate,
+  FaExternalLinkAlt,
+} from "react-icons/fa";
+import { SiGeeksforgeeks, SiTata } from "react-icons/si";
 
 function Certifications() {
-  const certifications = [
+  const certificates = [
     {
       id: "01",
-      category: "MACHINE LEARNING",
-      title: "Machine Learning",
-      organisation: "Organisation / Platform",
-      link: "#",
+      title: "GENAI Powered Data Analytics Job Simulation",
+      category: "TATA",
+      issuer: "Forage",
+      icon: <SiTata />,
+      file: "/certificates/TATA.pdf",
     },
+    
     {
       id: "02",
-      category: "PROGRAMMING",
-      title: "Python Programming",
-      organisation: "Organisation / Platform",
-      link: "#",
+      title: "Programming in c",
+      category: "GFG",
+      issuer: "GeeksforGeeks",
+      icon: <SiGeeksforgeeks />,
+      file: "/certificates/GFG Certificate.pdf",
     },
     {
       id: "03",
+      title: "Innovating with Google Cloud AI",
+      category: "CLOUD & AI",
+      issuer: "Google Cloud",
+      icon: <FaGoogle />,
+      file: "/certificates/Innovating with google cloud AI.pdf",
+    },
+    {
+      id: "04",
+      title: "Introduction to AI",
+      category: "ARTIFICIAL INTELLIGENCE",
+      issuer: "AI Certification",
+      icon: <FaBrain />,
+      file: "/certificates/intro to AI.pdf",
+    },
+    {
+      id: "05",
+      title: "Machine Learning with AI Training",
+      category: "INTERNSHALA TRAININGS",
+      issuer: "AI / ML Training",
+      icon: <FaBrain />,
+      file: "/certificates/Machine learning with AI Training - Certificate.pdf",
+    },
+    {
+      id: "06",
+      title: "Power BI",
+      category: "BUSINESS INTELLIGENCE",
+      issuer: "Data Visualization",
+      icon: <FaChartBar />,
+      file: "/certificates/Power BI.pdf",
+    },
+    {
+      id: "07",
+      title: "Python for Beginners",
       category: "PROGRAMMING",
-      title: "Java Programming",
-      organisation: "Organisation / Platform",
-      link: "#",
+      issuer: "Python Certification",
+      icon: <FaPython />,
+      file: "/certificates/Python for beginners.pdf",
+    },
+    {
+      id: "08",
+      title: "Data Analytics",
+      category: "DATA & ANALYTICS",
+      issuer: "Professional Certification",
+      icon: <FaChartBar />,
+      file: "/certificates/Data analytics.pdf",
     },
   ];
 
   return (
     <section className="certifications" id="certifications">
-      <div className="certContainer">
+      <div className="certificationsContainer">
 
-        {/* SECTION HEADER */}
-        <div className="certHeader">
-          <p className="certLabel">ACHIEVEMENTS</p>
+        {/* HEADING */}
+        <div className="certificationsHeader">
+          <p className="certificationsLabel">
+            <span></span>
+            ACHIEVEMENTS
+          </p>
 
           <h2>
             Certifications<span>.</span>
           </h2>
 
-          <p className="certDescription">
-            Certifications and courses completed as part of my learning
-            and professional development.
+          <p className="certificationsDescription">
+            Certifications and credentials earned through continuous
+            learning in AI, machine learning, programming, cloud and
+            data technologies.
           </p>
         </div>
 
-        {/* CERTIFICATE CARDS */}
-        <div className="certGrid">
-          {certifications.map((cert) => (
-            <article className="certificationCard" key={cert.id}>
+        {/* CERTIFICATE GRID */}
+        <div className="certificateGrid">
+          {certificates.map((certificate) => (
+            <article
+              className="certificateCard"
+              key={certificate.id}
+            >
+              <div className="certificateTop">
+                <span className="certificateNumber">
+                  / {certificate.id}
+                </span>
 
-              <div className="certNumber">
-                {cert.id}
+                <div className="certificateIcon">
+                  {certificate.icon}
+                </div>
               </div>
 
-              <div className="certIcon">
-                <span>✓</span>
-              </div>
-
-              <div className="certInfo">
-                <p className="certCategory">
-                  {cert.category}
+              <div className="certificateContent">
+                <p className="certificateCategory">
+                  {certificate.category}
                 </p>
 
-                <h3>
-                  {cert.title}
-                </h3>
+                <h3>{certificate.title}</h3>
 
-                <p className="certOrganisation">
-                  {cert.organisation}
+                <p className="certificateIssuer">
+                  {certificate.issuer}
                 </p>
               </div>
 
               <a
-                href={cert.link}
+                href={certificate.file}
                 target="_blank"
                 rel="noreferrer"
-                className="certLink"
+                className="certificateLink"
               >
-                View Certificate
-                <span>↗</span>
+                <span>View Credential</span>
+                <FaExternalLinkAlt />
               </a>
-
             </article>
           ))}
+        </div>
+
+        {/* BOTTOM */}
+        <div className="certificationsBottom">
+          <FaCertificate />
+
+          <span>
+            08 Professional Credentials
+          </span>
         </div>
 
       </div>
